@@ -1,0 +1,42 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/css?family=Allan);
+
+html{
+    height : 100% ;
+}
+body{
+    min-height : 100% ;
+    display : flex;
+    flex-direction : column;
+}
+body{
+    font-family: 'Noto Sans TC','Allan';
+    background-color: #333;
+}
+
+/* Navbar 字體顏色 */
+.navbar-dark .navbar-nav .active>.nav-link{
+    color: #f2e5b1;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #f2e5b1;
+    transform: scale(1);
+    transition-duration: .3s;
+}
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: #f2e5b1;
+    transform: scale(1.5);
+}
+
+
+.container{
+    flex: 1;
+}
+
+.footer{
+    width: 100%;
+    background-color: #243560;
+    min-height: 200px;
+    bottom: 0;
+    color: #f2e5b1;
+}
