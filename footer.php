@@ -14,3 +14,6 @@
         
     </div>
 </div>
+<?php
+	$db_link->close();
+?>
