@@ -8,52 +8,87 @@
     <title>DessertShop - 產品</title>
     <?php include "b4_link.php";?>
     <style>
-        .text{
-            font-size: 2rem;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 7px;
-            display:none;
+        .card{
+            background-color: #243560;
+            transform: translate(0px,11px);
+            box-shadow: 0px 0px 3px 1px white;
+            transition: transform .1s,box-shadow .1s;
+            border: unset;
         }
-        .seemore{
-            font-size: 2rem;
-            position: absolute;
-            bottom: 0%;
-            left: 50%;
-            transform: translate(-50%, 0%);
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 7px;
+        .card:hover{
+            transform: translate(0px,6px);
+            box-shadow: 0px 0px 6px 3px white;
         }
-        .seemore:hover .text{
-            display: block;
+        @media (max-width:576px){
+            .card-columns .card {
+                margin-bottom: 1.5rem;
+            }
         }
-        .seemore:hover{
-            width:0;
-            font-size:0;
-        }
-
     </style>
 </head>
 <body style="background-color: #000;">
     <?php include "navbar.php";?>
     
-    <div class="container mt-3">
+    <div class="container my-5">
         <div class="row justify-content-center">
-            <div class="col-md-10 mb-3">
-                <img class="w-100" src="img/cake-1.jpg">
-                <div class="text-white " style="font-size: 2.5rem;position: absolute;top: 10%;transform: translate(-50%, -50%);left: 13%;">本季推薦</div>
-                <div class="px-2 text-white seemore">More
-                    <div class="text-white text">XXXXXXXXXXXXXXXXX</div>
+            <div class="card-columns col-md-12 col-10 p-0">
+                <div class="card">
+                    <img class="card-img-top" src="img/原圖/柚香黑烏龍乳酪蛋糕.jpg" >
+                    <div class="card-body">
+                        <h4 class="card-title">柚香黑烏龍乳酪蛋糕</h4>
+                        <p class="card-text">$200</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-5 mb-3 pr-md-0">
-                <img class="w-100" src="img/cake-2.jpg">
-            </div>
-            <div class="col-md-5 mb-3 pl-md-0">
-                <img class="w-100" src="img/cake-3.jpg">
+                <div class="card">
+                    <img class="card-img-top" src="img/原圖/cake-3.jpg" >
+                    <div class="card-body">
+                        <h4 class="card-title">某蛋糕</h4>
+                        <p class="card-text">$250</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="img/原圖/草莓黑森林蛋糕.jpg" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">草莓黑森林蛋糕</h4>
+                        <p class="card-text">$350</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="img/原圖/生酮蛋糕.jpg" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">生酮蛋糕</h4>
+                        <p class="card-text">$80</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="img/原圖/玫瑰伯爵蛋糕.jpg" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">玫瑰伯爵蛋糕</h4>
+                        <p class="card-text">$180</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="img/原圖/大甲芋泥蛋糕.jpg" >
+                    <div class="card-body">
+                        <h4 class="card-title">大甲芋泥蛋糕</h4>
+                        <p class="card-text">$666</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="img/原圖/cake-2.jpg" >
+                    <div class="card-body">
+                        <h4 class="card-title">冰淇淋莓果蛋糕</h4>
+                        <p class="card-text">$399</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="img/原圖/瑰香頌乳酪慕斯.jpg" >
+                    <div class="card-body">
+                        <h4 class="card-title">瑰香頌乳酪慕斯</h4>
+                        <p class="card-text">$50</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

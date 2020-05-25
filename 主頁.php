@@ -9,13 +9,16 @@
     <?php include "b4_link.php";?>
 
     <style>
+        #carouselId{
+            width: 100%;
+        }
         .carousel-indicators{
             top: 0;
             margin: 0;
-            right: 100%;
+            right: 99.99%;
             left: unset;
             width: 42.7%;
-            display: block;
+            display: none;
         }
         .carousel-indicators li{
             width: 100%;
@@ -23,14 +26,41 @@
             margin: 0;
             border: 0;
         }
+        .tag{
+            color: #f2e5b1;
+            background-color: #243560;
+            border-radius: 3px;
+            padding-right: 3px;
+            padding-left: 3px;
+            margin-right: 10px;
+        }
+        .listA{
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between;
+        }
+        /* lg */
+        @media (min-width:992px){
+            #carouselId{
+                width: 70%;    
+            }
+            .carousel-indicators{
+                top: 0;
+                margin: 0;
+                right: 99.99%;
+                left: unset;
+                width: 42.7%;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
     <?php include "navbar.php";?>
 
-    <div class="container">
+    <div class="container-xl container-fluid">
         <div class="row justify-content-end">
-            <div id="carouselId" class="carousel slide carousel-fade" data-ride="carousel" style="width:70%;">
+            <div id="carouselId" class="carousel slide carousel-fade" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselId" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselId" data-slide-to="1"></li>
@@ -65,8 +95,50 @@
                 </a>
             </div>
         </div>
-        <div class="row">
-            <div></div>
+        <div class="row justify-content-center my-5">
+            <div class="col-lg-7"><h2 for="">最新消息</h2></div>
+            <div class="col-lg-7">
+                <div class="list-group">
+                    <!-- 系統、新品、活動 -->
+                    <a href="#" class="list-group-item list-group-item-action listA">
+                        <div style="word-break: break-all;padding-right: 10px;">
+                            <small class="tag">系統</small>
+                            <div style="display: inline;">伺服器定期維護【2020/05/27 (三)】12:00 - 15:00</div>
+                        </div>
+                        <small class="text-muted">2020/05/27</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action listA">
+                        <div style="word-break: break-all;padding-right: 10px;">
+                            <small class="tag">新品</small>
+                            <div style="display: inline;">冰淇淋莓果蛋糕全新上市!!</div>
+                        </div>
+                        <small class="text-muted">2020/05/25</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action listA">
+                        <div style="word-break: break-all;padding-right: 10px;">
+                            <small class="tag">新品</small>
+                            <div style="display: inline;">[玫瑰X伯爵茶] 玫瑰伯爵蛋糕好評熱銷!!</div>
+                        </div>
+                        <small class="text-muted">2020/05/25</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action listA">
+                        <div style="word-break: break-all;padding-right: 10px;">
+                            <small class="tag">系統</small>
+                            <div style="display: inline;">伺服器定期維護【2020/05/20 (三)】12:00 - 15:00</div>
+                        </div>
+                        <small class="text-muted">2020/05/20</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action listA">
+                        <div style="word-break: break-all;padding-right: 10px;">
+                            <small class="tag">活動</small>
+                            <div style="display: inline;">[慶賀母親節] 全店蛋糕9.9折起!!</div>
+                        </div>
+                        <small class="text-muted">2020/05/06</small>
+                    </a>
+                    <small class="text-muted">暫時僅顯示5筆資料</small>
+                </div>
+            </div>
+            
         </div>
     </div>
     <?php include "footer.php";?>
