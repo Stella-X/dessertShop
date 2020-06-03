@@ -19,6 +19,17 @@
             transform: translate(0px,6px);
             box-shadow: 0px 0px 6px 3px white;
         }
+        .card a{
+            color: inherit;
+        }
+        .card a:hover{
+            text-decoration: unset;
+        }
+        p .btn{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
         @media (max-width:576px){
             .card-columns .card {
                 margin-bottom: 1.5rem;
@@ -36,56 +47,56 @@
                     <img class="card-img-top" src="img/原圖/柚香黑烏龍乳酪蛋糕.jpg" >
                     <div class="card-body">
                         <h4 class="card-title">柚香黑烏龍乳酪蛋糕</h4>
-                        <p class="card-text">$200</p>
+                        <p class="card-text">$200<button type="button" class="btn btn-primary addcart">加入購物車</button></p>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-img-top" src="img/原圖/cake-3.jpg" >
                     <div class="card-body">
                         <h4 class="card-title">某蛋糕</h4>
-                        <p class="card-text">$250</p>
+                        <p class="card-text">$250<button type="button" class="btn btn-primary addcart">加入購物車</button></p>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-img-top" src="img/原圖/草莓黑森林蛋糕.jpg" alt="">
                     <div class="card-body">
                         <h4 class="card-title">草莓黑森林蛋糕</h4>
-                        <p class="card-text">$350</p>
+                        <p class="card-text">$350<button type="button" class="btn btn-primary addcart">加入購物車</button></p>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-img-top" src="img/原圖/生酮蛋糕.jpg" alt="">
                     <div class="card-body">
                         <h4 class="card-title">生酮蛋糕</h4>
-                        <p class="card-text">$80</p>
+                        <p class="card-text">$80<button type="button" class="btn btn-primary addcart">加入購物車</button></p>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-img-top" src="img/原圖/玫瑰伯爵蛋糕.jpg" alt="">
                     <div class="card-body">
                         <h4 class="card-title">玫瑰伯爵蛋糕</h4>
-                        <p class="card-text">$180</p>
+                        <p class="card-text">$180<button type="button" class="btn btn-primary addcart">加入購物車</button></p>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-img-top" src="img/原圖/大甲芋泥蛋糕.jpg" >
                     <div class="card-body">
                         <h4 class="card-title">大甲芋泥蛋糕</h4>
-                        <p class="card-text">$666</p>
+                        <p class="card-text">$666<button type="button" class="btn btn-primary addcart">加入購物車</button></p>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-img-top" src="img/原圖/cake-2.jpg" >
                     <div class="card-body">
                         <h4 class="card-title">冰淇淋莓果蛋糕</h4>
-                        <p class="card-text">$399</p>
+                        <p class="card-text">$399<button type="button" class="btn btn-primary addcart">加入購物車</button></p>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-img-top" src="img/原圖/瑰香頌乳酪慕斯.jpg" >
                     <div class="card-body">
                         <h4 class="card-title">瑰香頌乳酪慕斯</h4>
-                        <p class="card-text">$50</p>
+                        <p class="card-text">$50<button type="button" class="btn btn-primary addcart">加入購物車</button></p>
                     </div>
                 </div>
 
