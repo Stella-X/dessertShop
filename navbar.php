@@ -25,7 +25,12 @@
             if (isset($_GET["logout"]) && ($_GET["logout"] == "true")) {
                 unset($_SESSION["loginMember"]);
                 unset($_SESSION["memberLevel"]);
-                header("Location: 主頁.php");
+                #header("Location: 主頁.php");
+                ?>
+                    <script>
+                        window.location.href = '登入.php';
+                    </script>
+                <?php
             }
 
             if (!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"] == "")) {
