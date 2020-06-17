@@ -41,7 +41,7 @@
         }
     </style>
 </head>
-<body style="background-color: #000;">
+<body>
     <?php include "navbar.php";?>
     
     <div class="container my-5">

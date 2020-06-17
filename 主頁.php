@@ -82,7 +82,7 @@
                         <img class="w-100" src="img/1366x768/玫瑰伯爵蛋糕.png">
                     </div>
                     <div class="carousel-item">
-                        <img class="w-100" src="img/1366x768/玫瑰伯爵蛋糕.png">
+                        <img class="w-100" src="img/Logo/dessertShop - Logo [16x9].png">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
