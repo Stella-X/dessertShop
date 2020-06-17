@@ -91,6 +91,9 @@
                     </select>
                 </div>
                 <div class="w-100 mt-2 pt-2 d-flex justify-content-between align-items-center" style="border-top: 1px solid #eee;">
+                    <textarea class="form-control" name="" id="" rows="1" placeholder="備註(限30字內)" maxlength="30"></textarea>
+                </div>
+                <div class="w-100 mt-2 pt-2 d-flex justify-content-between align-items-center" style="border-top: 1px solid #eee;">
                     <div id="total">合計 : $0</div>
                     <button type="button" class="btn btn-primary">送出訂單</button>
                 </div>

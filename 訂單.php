@@ -28,6 +28,7 @@
 
     <div class="container my-5">
         <div class="row">
+            <!-- 以下內容以迴圈建立 -->
             <div class="col-lg-4 col-md-6">
                 <div class="olist" style="border: 1px solid #f2e5b1;background-color: #243560;padding: 10px;">
                     <div class="mb-1" style="font-size: 1.5rem;">取貨日: 2020/07/30</div>
@@ -54,6 +55,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
