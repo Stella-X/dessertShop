@@ -10,6 +10,8 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="產品.php">商品</a>
+            </li><li class="nav-item">
+                <a class="nav-link" href="訂單.php">訂單</a>
             </li>
             <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>

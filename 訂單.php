@@ -42,7 +42,11 @@
                         選購項目
                     </a>
                     <div class="collapse w-100 mb-1" id="contentId">
-                        ssss
+                        <div class="d-flex flex-wrap">
+                            <div class="col-6">冰淇淋莓果蛋糕</div>
+                            <div class="col-3">x1</div>
+                            <div class="col-3">$300</div>
+                        </div>
                     </div>
                     <div class="w-100 d-flex flex-wrap justify-content-between">
                         <div>訂購日: 2020/07/20</div>
