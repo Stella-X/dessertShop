@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-06-15 12:31:09
+-- 產生時間： 2020-06-27 22:38:41
 -- 伺服器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.4.4
 
@@ -76,8 +76,8 @@ CREATE TABLE `memberdata` (
 
 INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `m_birthday`, `m_level`, `m_email`, `m_url`, `m_phone`, `m_address`, `m_login`, `m_logintime`, `m_jointime`) VALUES
 (1, '系統管理員', 'admin', '$2y$10$FO70lc.3/vTeE0Vaf7O3Jes.UArylzLnnxfZffTF7410vndnvhScm', '男', NULL, 'admin', NULL, NULL, NULL, NULL, 26, '2020-05-22 18:46:24', '2008-10-20 16:36:15'),
-(14, '瑪雅', 'testacct000', '$2y$10$vCepYOMWhaN.5ljEy86Qceo85C2qxoF7K.0zFZt2xIx/mD26g1nxy', '女', '2020-05-22', 'member', '10000@gmail.com', NULL, '11111111', '10000 Quivira Rd, Overland Park, KS 66215, United States', 8, '2020-06-03 12:56:50', '2020-05-22 18:36:53'),
-(15, 'Kevin', 'testacct001', '$2y$10$aiL/xpQEx2qgO3aaE/vSFOqUT5CAAME.SOQrj8H5l0ANCHcaVYseO', '男', '2016-06-16', 'member', 'gihnd4v3i1n@gmail.com', '', '0977756123', '10500 Quivira Rd, Overland Park, KS 66200, United States', 1, '2020-05-22 18:44:40', '2020-05-22 18:44:14'),
+(14, '瑪雅', 'testacct000', '$2y$10$vCepYOMWhaN.5ljEy86Qceo85C2qxoF7K.0zFZt2xIx/mD26g1nxy', '女', '2020-05-22', 'member', '10000@gmail.com', NULL, '11111111', '10000 Quivira Rd, Overland Park, KS 66215, United States', 10, '2020-06-28 04:04:59', '2020-05-22 18:36:53'),
+(15, 'Kevin', 'testacct001', '$2y$10$aiL/xpQEx2qgO3aaE/vSFOqUT5CAAME.SOQrj8H5l0ANCHcaVYseO', '男', '2016-06-16', 'member', 'gihnd4v3i1n@gmail.com', '', '0977756123', '10500 Quivira Rd, Overland Park, KS 66200, United States', 2, '2020-06-28 03:22:20', '2020-05-22 18:44:14'),
 (16, '欣瑩', 'testacct002', '$2y$10$rFDfEt21MRD.pKZZMBFYWe87qpFtPl6GGrNn/a6JswP4LNPi9Sl0i', '女', '2011-11-16', 'member', 'shina043v@gmail.com', '', '0912345444', 'Tiwan', 1, '2020-05-22 18:51:18', '2020-05-22 18:51:10');
 
 -- --------------------------------------------------------
@@ -93,6 +93,7 @@ CREATE TABLE `orderlist_cake` (
   `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `quantity` int(11) NOT NULL,
   `price` int(11) NOT NULL,
+  `price_total` int(11) NOT NULL,
   `order_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -100,8 +101,27 @@ CREATE TABLE `orderlist_cake` (
 -- 傾印資料表的資料 `orderlist_cake`
 --
 
-INSERT INTO `orderlist_cake` (`id`, `acct`, `order_id`, `name`, `quantity`, `price`, `order_date`) VALUES
-(1, 'testacct000', 1, '生酮蛋糕', 1, 329, '2020-06-15 18:29:26');
+INSERT INTO `orderlist_cake` (`id`, `acct`, `order_id`, `name`, `quantity`, `price`, `price_total`, `order_date`) VALUES
+(25, 'testacct001', 1, '玫瑰伯爵蛋糕', 1, 490, 490, '2020-06-28 04:00:18'),
+(26, 'testacct001', 1, '生酮蛋糕', 2, 329, 658, '2020-06-28 04:00:18'),
+(27, 'testacct001', 1, '冰淇淋莓果蛋糕', 2, 200, 400, '2020-06-28 04:00:18'),
+(28, 'testacct001', 2, '大甲芋泥蛋糕', 3, 890, 2670, '2020-06-28 04:02:04'),
+(29, 'testacct001', 2, '玫瑰香頌乳酪慕斯', 2, 650, 1300, '2020-06-28 04:02:04'),
+(30, 'testacct001', 2, '草莓黑森林蛋糕', 1, 100, 100, '2020-06-28 04:02:04'),
+(31, 'testacct001', 3, '柚香黑烏龍乳酪蛋糕', 10, 650, 6500, '2020-06-28 04:02:20'),
+(32, 'testacct000', 4, '冰淇淋莓果蛋糕', 1, 200, 200, '2020-06-28 04:05:22'),
+(33, 'testacct000', 4, '大甲芋泥蛋糕', 2, 890, 1780, '2020-06-28 04:05:22'),
+(34, 'testacct000', 4, '柚香黑烏龍乳酪蛋糕', 1, 650, 650, '2020-06-28 04:05:22'),
+(35, 'testacct000', 5, '玫瑰香頌乳酪慕斯', 1, 650, 650, '2020-06-28 04:07:12'),
+(36, 'testacct000', 5, '冰淇淋莓果蛋糕', 2, 200, 400, '2020-06-28 04:07:12'),
+(37, 'testacct000', 5, '玫瑰伯爵蛋糕', 3, 490, 1470, '2020-06-28 04:07:12'),
+(38, 'testacct000', 5, '生酮蛋糕', 4, 329, 1316, '2020-06-28 04:07:12'),
+(39, 'testacct000', 5, '草莓黑森林蛋糕', 5, 100, 500, '2020-06-28 04:07:12'),
+(40, 'testacct000', 5, '玫瑰香頌乳酪慕斯', 6, 650, 3900, '2020-06-28 04:07:12'),
+(41, 'testacct000', 5, '大甲芋泥蛋糕', 7, 890, 6230, '2020-06-28 04:07:12'),
+(42, 'testacct000', 5, '柚香黑烏龍乳酪蛋糕', 8, 650, 5200, '2020-06-28 04:07:12'),
+(43, 'testacct000', 6, '冰淇淋莓果蛋糕', 10, 200, 2000, '2020-06-28 04:13:28'),
+(44, 'testacct000', 7, '柚香黑烏龍乳酪蛋糕', 6, 650, 3900, '2020-06-28 04:13:58');
 
 -- --------------------------------------------------------
 
@@ -117,17 +137,24 @@ CREATE TABLE `orderlist_member` (
   `order_id` int(11) NOT NULL,
   `order_price` int(11) NOT NULL,
   `order_address` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remarks` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `order_staus` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order_date` datetime NOT NULL,
-  `pickup_date` datetime NOT NULL,
-  `order_staus` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
+  `pickup_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `orderlist_member`
 --
 
-INSERT INTO `orderlist_member` (`id`, `acct`, `member_name`, `phone`, `order_id`, `order_price`, `order_address`, `order_date`, `pickup_date`, `order_staus`) VALUES
-(1, 'testacct000', '瑪雅', '0000', 1, 329, '???', '2020-06-15 18:26:25', '2020-06-24 18:26:25', '未領取');
+INSERT INTO `orderlist_member` (`id`, `acct`, `member_name`, `phone`, `order_id`, `order_price`, `order_address`, `remarks`, `order_staus`, `order_date`, `pickup_date`) VALUES
+(21, 'testacct001', 'Kevin', '0977756123', 1, 1548, '分店2 - 自取', 'CMMD', '未完成', '2020-06-28 04:00:18', '2020-07-09'),
+(22, 'testacct001', 'Kevin', '0977756123', 2, 4070, '分店1 - 自取', 'AML', '未完成', '2020-06-28 04:02:04', '2020-07-07'),
+(23, 'testacct001', 'Kevin', '0977756123', 3, 6500, '本店 - 自取', 'ND', '未完成', '2020-06-28 04:02:20', '2020-07-11'),
+(24, 'testacct000', '瑪雅', '11111111', 4, 2630, '本店 - 自取', 'NDD', '未完成', '2020-06-28 04:05:22', '2020-07-08'),
+(25, 'testacct000', '瑪雅', '11111111', 5, 19666, '分店1 - 自取', 'AMM', '未完成', '2020-06-28 04:07:12', '2020-07-08'),
+(26, 'testacct000', '瑪雅', '11111111', 6, 2000, '本店 - 自取', 'MDD', '未完成', '2020-06-28 04:13:28', '2020-07-22'),
+(27, 'testacct000', '瑪雅', '11111111', 7, 3900, '分店1 - 自取', 'POK', '未完成', '2020-06-28 04:13:58', '2020-06-30');
 
 --
 -- 已傾印資料表的索引
@@ -173,13 +200,13 @@ ALTER TABLE `memberdata`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orderlist_cake`
 --
 ALTER TABLE `orderlist_cake`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orderlist_member`
 --
 ALTER TABLE `orderlist_member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
