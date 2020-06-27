@@ -3,6 +3,63 @@
     $query_cakes = "SELECT * FROM `cakes` WHERE 1";
     $stmt = $db_link->query($query_cakes);
 ?>
+
+<?php
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    
+    if(isset($_POST["addorder"]) && $_POST["addorder"] == "送出訂單"){
+        #取得
+        $query_order = "SELECT * FROM `orderlist_member` WHERE 1";
+        $stmt_order = $db_link->query($query_order);
+        $order_num = $stmt_order->num_rows;
+        $order_num = $order_num + 1;
+        #取得
+        $query_RecMember = "SELECT * FROM memberdata WHERE m_username = '{$_SESSION["loginMember"]}'";
+        $RecMember = $db_link->query($query_RecMember);
+        $row_RecMember = $RecMember->fetch_assoc();
+        #
+        
+        $aa = test_input($_POST['remarks']);
+        $query_order = "INSERT INTO `orderlist_member`(`acct`, `member_name`, `phone`, `order_id`, `order_price`, `order_address`,`remarks`, `order_staus`, `order_date`, `pickup_date`) VALUES (?,?,?,?,?,?,?,'未完成',NOW(),?)";
+        $stmt_order = $db_link->prepare($query_order);
+        $stmt_order->bind_param("sssiisss",
+                                $row_RecMember["m_username"],
+                                $row_RecMember["m_name"],
+                                $row_RecMember["m_phone"],
+                                $order_num,
+                                $_POST["total_in"],
+                                $_POST["address"],
+                                $aa,
+                                $_POST["pickup_date"]);
+        $stmt_order->execute();
+        $stmt_order->close();
+        #
+        $i=0;
+        while($i < count($_POST["items_quantity"])){
+            $query_order_cake = "INSERT INTO `orderlist_cake`(`acct`, `order_id`, `name`, `quantity`, `price`,`price_total`, `order_date`) VALUES (?,?,?,?,?,?,NOW())";
+            $stmt_order_cake = $db_link->prepare($query_order_cake);
+            $stmt_order_cake->bind_param("sisiii",
+                                    $row_RecMember["m_username"],
+                                    $order_num,
+                                    $_POST["items_name_in"][$i],
+                                    $_POST["items_quantity"][$i],
+                                    $_POST["itemsPrice_one_in"][$i],
+                                    $_POST["items_price_in"][$i]);
+            $stmt_order_cake->execute();
+            
+            $i = $i + 1;
+        }
+        $stmt_order_cake->close();
+        
+    }
+    
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,8 +130,8 @@
             </div>
         </div>
     </div>
-
-    <div id="cart_back" class="container-fluid" style="position: fixed;background-color: rgba(0,0,0,0.8);height: 100%;z-index: 2;overflow-y: auto;display:none">
+    
+    <form method="post" id="cart_back" class="container-fluid" style="position: fixed;background-color: rgba(0,0,0,0.8);height: 100%;z-index: 2;overflow-y: auto;display:none">
         <div class="row justify-content-center">
             <div id="cart_list" class="col-xl-3 col-sm-6 col-11 d-flex flex-wrap">
                 <div class="w-100 h3 pb-2 text-center">購物車</div>
@@ -83,23 +140,24 @@
                     
                 </div>
                 <div class="w-100 mt-2 pt-2 d-flex justify-content-between align-items-center" style="border-top: 1px solid #eee;">
-                    <input type="date" id="getDate" class="form-control text-center mx-1 px-1" max="" min="new Date()">
-                    <select class="form-control" name="" id="">
+                    <input name="pickup_date" type="date" id="getDate" class="form-control text-center mx-1 px-1" max="" min="new Date()">
+                    <select name="address" class="form-control" name="" id="">
                         <option>本店 - 自取</option>
                         <option>分店1 - 自取</option>
                         <option>分店2 - 自取</option>
                     </select>
                 </div>
-                <div class="w-100 mt-2 pt-2 d-flex justify-content-between align-items-center" style="border-top: 1px solid #eee;">
-                    <textarea class="form-control" name="" id="" rows="1" placeholder="備註(限30字內)" maxlength="30"></textarea>
+                <div name="remarks" class="w-100 mt-2 pt-2 d-flex justify-content-between align-items-center" style="border-top: 1px solid #eee;">
+                    <textarea class="form-control" name="remarks" id="" rows="1" placeholder="備註(限30字內)" maxlength="30"></textarea>
                 </div>
                 <div class="w-100 mt-2 pt-2 d-flex justify-content-between align-items-center" style="border-top: 1px solid #eee;">
-                    <div id="total">合計 : $0</div>
-                    <button type="button" class="btn btn-primary">送出訂單</button>
+                    <input  type="hidden" id="" name="total_in" class="total_in" value="0">
+                    <div name="total" id='total' ></div>
+                    <button  type="submit" name ="addorder" value = "送出訂單" class="btn btn-primary">送出訂單</button>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
     <button type="button" id="cart_btn" class="btn"><i class="fas fa-cart-arrow-down"></i></button>
     <?php include "footer.php";?>
 
@@ -151,27 +209,34 @@
             var i = document.getElementById('itemsLoop').children.length
             var cartItems = '<div class="d-flex flex-wrap pt-2 mt-2" style = "border-top: 1px solid #eee;">\
                                 <div class="col-4 p-0">\
-                                    <img src="img/原圖/cake-2.jpg" class="w-100 itemsImg">\
+                                    <img name="" src="img/原圖/cake-2.jpg" class="w-100 itemsImg">\
                                 </div>\
                                 <div class="col-6 d-flex flex-wrap align-content-between">\
-                                    <div class="w-100 itemsName">冰淇淋莓果蛋糕</div>\
+                                    <input  type="hidden" name="items_name_in[]" class="items_name_in" value="cake_name">\
+                                    <div name="items_name" class="w-100 itemsName">冰淇淋莓果蛋糕</div>\
                                     <div class="w-100 d-flex">\
                                         <button type="button" class="btn btn-primary" style="width:40px;height:40px;" onclick="minuser('+i+','+itemsPrice+')"> - </button>\
-                                        <input type="text" id="" class="form-control text-center mx-1 px-1 countNum" style="width:40px;height:40px;" value="1">\
+                                        <input name="items_quantity[]" type="text" id="" class="form-control text-center mx-1 px-1 countNum" style="width:40px;height:40px;" value="1">\
                                         <button type="button" class="btn btn-primary" style="width:40px;height:40px;" onclick="adder('+i+','+itemsPrice+')">+</button>\
                                     </div>\
                                 </div>\
                                 <div class="col-2 p-0 d-flex flex-wrap align-content-between text-right">\
                                     <div class="w-100"><i class="fas fa-trash delItems"></i></div>\
-                                    <div class="w-100 itemsPrice" style="width: 40px;height: 30px;">$200</div>\
+                                    <input  type="hidden" name="itemsPrice_one_in[]" class="itemsPrice_one_in" value="0">\
+                                    <input  type="hidden" name="items_price_in[]" class="itemsPrice_in" value="0">\
+                                    <div name="items_price" class="w-100 itemsPrice" style="width: 40px;height: 30px;">$200</div>\
                                 </div>\
                             </div>';
             $('#itemsLoop').append(cartItems)
             document.getElementsByClassName('itemsImg')[i].src = imgUrl
             document.getElementsByClassName('itemsName')[i].innerHTML = itemsName
+            document.getElementsByClassName('items_name_in')[i].value = itemsName
             document.getElementsByClassName('itemsPrice')[i].innerHTML = '$' + itemsPrice
+            document.getElementsByClassName('itemsPrice_one_in')[i].value = itemsPrice
+            document.getElementsByClassName('itemsPrice_in')[i].value = itemsPrice
             total += itemsPrice
             document.getElementById('total').innerHTML = '合計 : $'+total
+            document.getElementsByClassName("total_in")[0].value = total
             $('.delItems').click(function(){
                 this.parentElement.parentElement.parentElement.remove()
                 total = 0
@@ -179,6 +244,7 @@
                     total += parseInt(document.getElementsByClassName("itemsPrice")[x].innerHTML.substring(1))
                 }
                 document.getElementById('total').innerHTML = '合計 : $'+total
+                document.getElementsByClassName("total_in")[0].value = total
             })
         }
         
@@ -191,7 +257,7 @@
             document.getElementsByClassName("countNum")[i].value = count
             updatePrice(i,itemsPrice,count)
         }
-
+            
         function minuser(i,itemsPrice) {
             var count = document.getElementsByClassName("countNum")[i].value
             if(count <= 1) 
@@ -205,10 +271,12 @@
             total = 0;
             var xPrice = document.getElementsByClassName("itemsPrice")
             xPrice[i].innerHTML = '$' + itemsPrice * count
+            document.getElementsByClassName('itemsPrice_in')[i].value = itemsPrice * count
             for(x=0; x < document.getElementById('itemsLoop').children.length; x++){
                 total += parseInt(xPrice[x].innerHTML.substring(1))
             }
             document.getElementById('total').innerHTML = '合計 : $'+total
+            document.getElementsByClassName("total_in")[0].value = total
         }
     </script>
 </body>
