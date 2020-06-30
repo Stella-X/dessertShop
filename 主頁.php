@@ -70,7 +70,7 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img class="w-100" src="img/1366x768/草莓黑森林蛋糕.jpg">
+                        <img class="w-100" src="img/1366x768/草莓黑森林蛋糕.png">
                     </div>
                     <div class="carousel-item">
                         <img class="w-100" src="img/1366x768/冰淇淋莓果蛋糕.png">
