@@ -195,7 +195,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">姓名<small>*</small></label>
-                        <input type="text" name="m_name" id="m_name" class="form-control" placeholder="" value=<?php echo $name; ?> required>
+                        <input type="text" name="m_name" id="m_name" class="form-control" placeholder="" value="<?php echo $name; ?>" required>
                     </div>
                     <label>性別</label>
                     <div class="form-group">
@@ -210,19 +210,19 @@
                     </div>
                     <div class="form-group">
                         <label for="">生日<small>*</small></label>
-                        <input type="date" name="m_birthday" id="m_birthday" class="form-control" placeholder="" required value=<?php echo $birthday; ?>>
+                        <input type="date" name="m_birthday" id="m_birthday" class="form-control" placeholder="" required value="<?php echo $birthday; ?>">
                     </div>
                     <div class="form-group">
                         <label for="">電話號碼<small>*</small></label>
-                        <input type="text" name="m_phone" id="m_phone" class="form-control" placeholder="" value=<?php echo $phone; ?> required>
+                        <input type="text" name="m_phone" id="m_phone" class="form-control" placeholder="" value="<?php echo $phone; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="">Email<small>*</small></label>
-                        <input type="email" name="m_email" id="m_email" class="form-control" placeholder="確定此電子郵件為可用，以便未來找回帳號。" value=<?php echo $email; ?> required>
+                        <input type="email" name="m_email" id="m_email" class="form-control" placeholder="確定此電子郵件為可用，以便未來找回帳號。" value="<?php echo $email; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="">地址<small>*</small></label>
-                        <input type="text" name="m_address" id="m_address" class="form-control" placeholder="" size="40" value=<?php  echo str_replace(" ","&nbsp;",$address); ?> required>
+                        <input type="text" name="m_address" id="m_address" class="form-control" placeholder="" size="40" value="<?php  echo str_replace(" ","&nbsp;",$address); ?>" required>
                     </div>
                     <div class="d-flex justify-content-between">
                         <small>*必填</small>
