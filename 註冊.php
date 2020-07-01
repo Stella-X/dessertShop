@@ -161,7 +161,7 @@ if (isset($_POST["action"]) && ($_POST["action"] == "join")) {
     <?php include "navbar.php"; ?>
     <div class="container my-5">
         <div class="row justify-content-center">
-            <div class="col-md-4 p-3" style="border: #f2e5b1 solid 1.5px;border-radius: 7px;background-color: #243560;">
+            <div class="col-md-6 p-3 m-2" style="border: #f2e5b1 solid 1.5px;border-radius: 7px;background-color: #243560;">
                 <form action="" method="post" name="formJoin" id="formJoin" onSubmit="return checkForm();">
                     <div class="mb-3" style="font-size: 1.7rem;">註冊表單</div>
                     <div class="form-group">

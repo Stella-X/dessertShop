@@ -164,7 +164,8 @@
                         ?>
                             <script>
                                 var redirectUrlJS = "<?php print($redirectUrl); ?>";
-                                alert('會員修改成功。');
+                                if(redirectUrlJS=="主頁.php") alert('資料修改成功，請重新登入。');
+                                else alert('資料修改成功。');
                                 window.location.href = redirectUrlJS;
                             </script>
                         <?php 
@@ -174,7 +175,7 @@
     ?>
     <div class="container my-5">
         <div class="row justify-content-center">
-            <div class="col-md-4 p-3" style="border: #f2e5b1 solid 1.5px;border-radius: 7px;background-color: #243560;">
+            <div class="col-md-6 p-3 m-2" style="border: #f2e5b1 solid 1.5px;border-radius: 7px;background-color: #243560;">
                 <form action="" method="post" name="formJoin" id="formJoin" onSubmit="return checkForm();">
                     <div class="mb-3" style="font-size: 1.7rem;">會員資料表單</div>
                     <div class="form-group">

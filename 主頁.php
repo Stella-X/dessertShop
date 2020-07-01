@@ -62,11 +62,11 @@
         <div class="row justify-content-end">
             <div id="carouselId" class="carousel slide carousel-fade" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselId" data-slide-to="1"></li>
-                    <li data-target="#carouselId" data-slide-to="2"></li>
-                    <li data-target="#carouselId" data-slide-to="3"></li>
-                    <li data-target="#carouselId" data-slide-to="4"></li>
+                    <li data-target="#carouselId" data-slide-to="0" class="active" style="background-image: url(img/3.8x1/人氣熱賣.png);background-size: cover;"></li>
+                    <li data-target="#carouselId" data-slide-to="1" style="background-image: url(img/3.8x1/夏日冰點.png);background-size: cover;"></li>
+                    <li data-target="#carouselId" data-slide-to="2" style="background-image: url(img/3.8x1/老少咸宜.png);background-size: cover;"></li>
+                    <li data-target="#carouselId" data-slide-to="3" style="background-image: url(img/3.8x1/玫瑰伯爵茶.png);background-size: cover;"></li>
+                    <li data-target="#carouselId" data-slide-to="4" style="background-image: url(img/3.8x1/Logo.png);background-size: cover;"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">

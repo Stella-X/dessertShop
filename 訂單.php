@@ -48,12 +48,13 @@
                     
                         
                     #建立
+                    $num = 0;
                     while($row = $stmt_order->fetch_assoc()){
                         #取得每份訂單的蛋糕資料
                         $query_order_cake = "SELECT * FROM `orderlist_cake` WHERE order_id='{$row["order_id"]}'";
                         $stmt_order_cake = $db_link->query($query_order_cake);
 
-                        echo '<div class="col-lg-4 col-md-6">
+                        echo '<div class="col-lg-4 col-md-6 mb-3">
                                 <div class="olist" style="border: 1px solid #f2e5b1;background-color: #243560;padding: 10px;">
                                     <div class="mb-1" style="font-size: 1.5rem;">取貨日: '.$row['pickup_date'].'</div>
                                     <div class="w-100 mb-1">編號: '.$row['order_id'].'</div>
@@ -63,10 +64,10 @@
                                     <div class="w-50 mb-1">取貨店: '.$row['order_address'].'</div>
                                     <div class="w-50 mb-1">狀態: '.$row['order_staus'].'</div>
                                     <div class="w-50 mb-1">備註: '.$row['remarks'].'</div>
-                                    <a class="w-100" data-toggle="collapse" href="#contentId" aria-expanded="false" aria-controls="contentId">
+                                    <a class="w-100" data-toggle="collapse" href="#contentId'.$num.'" aria-expanded="false" aria-controls="contentId'.$num.'">
                                         選購項目
                                     </a>
-                                    <div class="collapse w-100 mb-1" id="contentId">';
+                                    <div class="collapse w-100 mb-1" id="contentId'.$num.'">';
                         while($row_cake = $stmt_order_cake->fetch_assoc()){
                         echo            '<div class="d-flex flex-wrap">
                                             <div class="col-6">'.$row_cake['name'].'</div>
@@ -81,6 +82,7 @@
                                     </div>
                                 </div>
                             </div>';
+                        $num++;
                     }
                 }
                 else{

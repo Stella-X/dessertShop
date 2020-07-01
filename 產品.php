@@ -55,7 +55,7 @@
             $i = $i + 1;
         }
         $stmt_order_cake->close();
-        
+        header("Location: 訂單.php");
     }
     
 
